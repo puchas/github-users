@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+
+    <ImageView
+            android:id="@+id/avatar"
+            tools:background="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            android:layout_marginTop="50dp"
+            android:maxWidth="250dp"
+            tools:layout_width="200dp"
+            tools:layout_height="200dp"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"/>
+
+    <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toTopOf="@+id/avatar"
+            app:layout_constraintStart_toEndOf="@+id/avatar"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="Imie Nazwisko"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"/>
+
+    <TextView
+            android:id="@+id/login"
+            tools:text="login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            android:visibility="visible"
+            android:layout_marginBottom="10dp"/>
+
+    <TextView
+            android:id="@+id/blog_link"
+            tools:text="www.example.com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toBottomOf="@+id/login"
+            app:layout_constraintStart_toStartOf="@+id/login"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:autoLink="web"/>
+
+    <TextView
+            android:id="@+id/location"
+            tools:text="Metropolis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toBottomOf="@+id/blog_link"
+            app:layout_constraintStart_toStartOf="@+id/blog_link"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
