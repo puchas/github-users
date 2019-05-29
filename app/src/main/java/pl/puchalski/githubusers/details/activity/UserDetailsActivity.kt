@@ -3,6 +3,8 @@ package pl.puchalski.githubusers.details.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -50,7 +52,21 @@ class UserDetailsActivity : AppCompatActivity() {
     }
 
     private fun showUserDetails(userDetails: UserDetails) {
-        login.text = userDetails.login
         Picasso.get().load(userDetails.avatarUrl).into(avatar)
+        login.text = userDetails.login
+        setOptionalField(name, userDetails.name)
+        setOptionalField(blog_link, userDetails.blog)
+        setOptionalField(location, userDetails.location)
+    }
+
+    private fun setOptionalField(textView: TextView, string: String?) {
+        if (string.isNullOrBlank()) {
+            textView.visibility = View.GONE
+        } else {
+            textView.apply {
+                visibility = View.VISIBLE
+                text = string
+            }
+        }
     }
 }
