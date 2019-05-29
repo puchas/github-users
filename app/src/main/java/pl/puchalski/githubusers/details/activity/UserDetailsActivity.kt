@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user_details.*
 import pl.puchalski.githubusers.R
 import pl.puchalski.githubusers.details.viewmodel.UserDetailsViewModel
@@ -49,8 +50,7 @@ class UserDetailsActivity : AppCompatActivity() {
     }
 
     private fun showUserDetails(userDetails: UserDetails) {
-
         login.text = userDetails.login
-
+        Picasso.get().load(userDetails.avatarUrl).into(avatar)
     }
 }

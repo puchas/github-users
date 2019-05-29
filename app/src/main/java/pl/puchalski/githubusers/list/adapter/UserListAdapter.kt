@@ -8,7 +8,10 @@ import kotlinx.android.synthetic.main.item_user.view.*
 import pl.puchalski.githubusers.R
 import pl.puchalski.githubusers.model.User
 
-class UserListAdapter(private var users: List<User>) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+class UserListAdapter(
+    private var users: List<User>,
+    private val onUserClick: (String) -> Unit = {}
+) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -22,7 +25,11 @@ class UserListAdapter(private var users: List<User>) : RecyclerView.Adapter<User
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = users[position]
+
         holder.itemView.login.text = user.login
+        holder.itemView.setOnClickListener {
+            onUserClick(user.login)
+        }
     }
 
     override fun getItemCount(): Int = users.size

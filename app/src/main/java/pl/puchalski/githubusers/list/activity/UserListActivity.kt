@@ -1,14 +1,13 @@
 package pl.puchalski.githubusers.list.activity
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_user_list.*
 import pl.puchalski.githubusers.R
+import pl.puchalski.githubusers.details.activity.UserDetailsActivity
 import pl.puchalski.githubusers.list.adapter.UserListAdapter
 import pl.puchalski.githubusers.list.viewmodel.UserListViewModel
 
@@ -33,8 +32,12 @@ class UserListActivity : AppCompatActivity() {
     }
 
     private fun prepareAdapter() {
-        adapter = UserListAdapter(listOf())
+        adapter = UserListAdapter(listOf()) { onUserClick(it) }
         user_list.adapter = adapter
         user_list.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun onUserClick(login: String) {
+        UserDetailsActivity.startForUser(this, login)
     }
 }
