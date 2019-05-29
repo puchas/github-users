@@ -27,22 +27,9 @@ class UserListActivity : AppCompatActivity() {
             adapter.updateUsers(it)
         })
 
-        search_text.addTextChangedListener(
-            object : TextWatcher {
-                override fun afterTextChanged(p0: Editable?) {
-                }
-
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
-
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    p0?.let {
-                        viewModel.search(it.toString())
-                    }
-                }
-
-            }
-        )
+        search_button.setOnClickListener {
+            viewModel.search(search_text.text.toString())
+        }
     }
 
     private fun prepareAdapter() {

@@ -6,11 +6,17 @@
 
     <EditText
             android:id="@+id/search_text"
-            android:hint="szukaj"
+            android:hint="login"
             android:layout_width="match_parent"
             android:inputType="text"
             android:layout_height="wrap_content"
             tools:ignore="Autofill,HardcodedText"/>
+
+    <Button
+            android:id="@+id/search_button"
+            android:text="szukaj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/user_list"
