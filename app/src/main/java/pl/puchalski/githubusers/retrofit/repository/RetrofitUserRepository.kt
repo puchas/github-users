@@ -32,4 +32,6 @@ class RetrofitUserRepository : UserRepository {
 
         }
     }
+
+    override fun isRemoteRepository(): Boolean = true
 }
