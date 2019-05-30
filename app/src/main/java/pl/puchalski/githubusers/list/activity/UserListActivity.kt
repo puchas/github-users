@@ -16,7 +16,6 @@ class UserListActivity : AppCompatActivity() {
     private lateinit var adapter: UserListAdapter
     private val viewModel: UserListViewModel by viewModel()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_list)

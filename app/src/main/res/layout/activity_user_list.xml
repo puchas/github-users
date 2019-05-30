@@ -4,19 +4,28 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <EditText
-            android:id="@+id/search_text"
-            android:hint="login"
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:inputType="text"
-            android:layout_height="wrap_content"
-            tools:ignore="Autofill,HardcodedText"/>
+            android:layout_height="wrap_content">
 
-    <Button
-            android:id="@+id/search_button"
-            android:text="szukaj"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <EditText
+                android:id="@+id/search_text"
+                android:hint="Wprowadź login lub jego część"
+                android:layout_width="0dp"
+                android:inputType="text"
+                android:layout_weight="1.0"
+                android:layout_height="wrap_content"
+                tools:ignore="Autofill,HardcodedText"/>
+
+        <ImageButton
+                android:id="@+id/search_button"
+                android:background="@android:drawable/ic_menu_search"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" tools:ignore="ContentDescription"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/user_list"
