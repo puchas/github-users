@@ -7,9 +7,9 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_user_details.*
+import org.koin.android.viewmodel.ext.android.viewModel
 import pl.puchalski.githubusers.R
 import pl.puchalski.githubusers.details.viewmodel.UserDetailsViewModel
 import pl.puchalski.githubusers.model.UserDetails
@@ -28,7 +28,7 @@ class UserDetailsActivity : AppCompatActivity() {
 
     }
 
-    private val viewModel by lazy { ViewModelProviders.of(this).get(UserDetailsViewModel::class.java) }
+    private val viewModel: UserDetailsViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

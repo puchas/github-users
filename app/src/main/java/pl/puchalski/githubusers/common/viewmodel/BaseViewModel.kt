@@ -1,4 +1,4 @@
-package pl.puchalski.githubusers.common
+package pl.puchalski.githubusers.common.viewmodel
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

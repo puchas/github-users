@@ -4,17 +4,15 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import pl.puchalski.githubusers.common.BaseViewModel
-import pl.puchalski.githubusers.common.UserRepository
+import pl.puchalski.githubusers.common.viewmodel.BaseViewModel
+import pl.puchalski.githubusers.common.repository.UserRepository
 import pl.puchalski.githubusers.model.UserDetails
 
-class UserDetailsViewModel : BaseViewModel() {
+class UserDetailsViewModel(private val repo: UserRepository) : BaseViewModel() {
 
     val user = MutableLiveData<UserDetails>()
 
     private var storedLogin: String? = null
-
-    private val repo = UserRepository()
 
     fun getUserDetails(login: String) {
 

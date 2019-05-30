@@ -1,16 +1,17 @@
-package pl.puchalski.githubusers.common
+package pl.puchalski.githubusers.retrofit.repository
 
 import io.reactivex.Observable
+import pl.puchalski.githubusers.common.repository.UserRepository
 import pl.puchalski.githubusers.model.User
 import pl.puchalski.githubusers.model.UserDetails
 import pl.puchalski.githubusers.retrofit.RetrofitClient
 import pl.puchalski.githubusers.retrofit.api.UserApi
 
-class UserRepository {
+class RetrofitUserRepository : UserRepository {
 
     private val service: UserApi = RetrofitClient.createService()
 
-    fun searchUsers(login: String): Observable<List<User>> {
+    override fun searchUsersByLogin(login: String): Observable<List<User>> {
 
         val query = "$login in:login"
 
@@ -22,13 +23,13 @@ class UserRepository {
         }
     }
 
-    fun getUserDetails(login: String): Observable<UserDetails> {
+    override fun getUserDetails(login: String): Observable<UserDetails> {
 
         return service.getUserDetails(login).map {
             it.run {
                 UserDetails(login, avatarUrl, name, blog, location)
             }
+
         }
     }
-
 }
