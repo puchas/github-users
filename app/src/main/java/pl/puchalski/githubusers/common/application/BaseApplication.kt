@@ -14,7 +14,7 @@ import pl.puchalski.githubusers.retrofit.repository.RetrofitUserRepository
 class BaseApplication : Application() {
 
     private val appModule = module {
-        single<UserRepository> { RetrofitUserRepository() }
+        single<UserRepository> { RetrofitUserRepository(get()) }
         viewModel { UserListViewModel(get(), get()) }
         viewModel { UserDetailsViewModel(get(), get()) }
     }
