@@ -1,5 +1,6 @@
 package pl.puchalski.githubusers.details.viewmodel
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -8,7 +9,7 @@ import pl.puchalski.githubusers.common.viewmodel.BaseViewModel
 import pl.puchalski.githubusers.common.repository.UserRepository
 import pl.puchalski.githubusers.model.UserDetails
 
-class UserDetailsViewModel(private val repo: UserRepository) : BaseViewModel() {
+class UserDetailsViewModel(application: Application, private val repo: UserRepository) : BaseViewModel(application) {
 
     val user = MutableLiveData<UserDetails>()
 

@@ -15,8 +15,8 @@ class BaseApplication : Application() {
 
     private val appModule = module {
         single<UserRepository> { RetrofitUserRepository() }
-        viewModel { UserListViewModel(get()) }
-        viewModel { UserDetailsViewModel(get()) }
+        viewModel { UserListViewModel(get(), get()) }
+        viewModel { UserDetailsViewModel(get(), get()) }
     }
 
     override fun onCreate() {
