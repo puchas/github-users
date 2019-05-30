@@ -35,6 +35,7 @@ class UserDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_details)
 
         val login = restoreLogin()
+        title = "Szczegóły użytkownika $login"
 
         viewModel.user.observe(this, Observer { showUserDetails(it) })
 
