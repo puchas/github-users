@@ -20,7 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".details.activity.UserDetailsActivity"/>
+        <activity android:name=".details.activity.UserDetailsActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".list.activity.UserListActivity"/>
+        </activity>
     </application>
 
 </manifest>
