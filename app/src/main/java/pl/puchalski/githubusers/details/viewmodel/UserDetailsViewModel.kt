@@ -1,17 +1,14 @@
 package pl.puchalski.githubusers.details.viewmodel
 
-import android.app.Application
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import pl.puchalski.githubusers.common.extension.isNetworkAvailable
-import pl.puchalski.githubusers.common.viewmodel.BaseViewModel
 import pl.puchalski.githubusers.common.repository.UserRepository
+import pl.puchalski.githubusers.common.viewmodel.BaseViewModel
 import pl.puchalski.githubusers.model.UserDetails
 
-class UserDetailsViewModel(application: Application, private val repo: UserRepository) : BaseViewModel(application) {
+class UserDetailsViewModel(private val repo: UserRepository) : BaseViewModel() {
 
     val user = MutableLiveData<UserDetails>()
 
@@ -22,10 +19,6 @@ class UserDetailsViewModel(application: Application, private val repo: UserRepos
         if (login == storedLogin) {
             return
         }
-
-        val context = getApplication() as Context
-        if (repo.isRemoteRepository() && context.isNetworkAvailable().not())
-            return
 
         storedLogin = login
 

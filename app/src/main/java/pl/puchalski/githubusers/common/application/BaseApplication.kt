@@ -9,14 +9,15 @@ import org.koin.dsl.module
 import pl.puchalski.githubusers.common.repository.UserRepository
 import pl.puchalski.githubusers.details.viewmodel.UserDetailsViewModel
 import pl.puchalski.githubusers.list.viewmodel.UserListViewModel
+import pl.puchalski.githubusers.retrofit.module.retrofitModule
 import pl.puchalski.githubusers.retrofit.repository.RetrofitUserRepository
 
 class BaseApplication : Application() {
 
     private val appModule = module {
         single<UserRepository> { RetrofitUserRepository(get()) }
-        viewModel { UserListViewModel(get(), get()) }
-        viewModel { UserDetailsViewModel(get(), get()) }
+        viewModel { UserListViewModel(get()) }
+        viewModel { UserDetailsViewModel(get()) }
     }
 
     override fun onCreate() {
@@ -25,7 +26,7 @@ class BaseApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@BaseApplication)
-            modules(appModule)
+            modules(appModule + retrofitModule)
         }
     }
 }
