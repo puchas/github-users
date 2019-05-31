@@ -14,19 +14,13 @@ class RetrofitUserRepository(private val service: UserApi) : UserRepository {
 
         return service.searchUsers(query).flatMap {
             Observable.fromIterable(it.users)
-                .map { dto -> User(dto.login) }
                 .toList()
                 .toObservable()
         }
     }
 
     override fun getUserDetails(login: String): Observable<UserDetails> {
-
-        return service.getUserDetails(login).map {
-            it.run {
-                UserDetails(login, avatarUrl, name, blog, location)
-            }
-        }
+        return service.getUserDetails(login)
     }
 
 }

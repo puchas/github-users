@@ -53,7 +53,7 @@ class UserDetailsActivity : AppCompatActivity() {
     }
 
     private fun showUserDetails(userDetails: UserDetails) {
-        Picasso.get().load(userDetails.avatarUrl).into(avatar)
+        Picasso.get().load(userDetails.avatar_url).into(avatar)
         login.text = userDetails.login
         setOptionalField(name, userDetails.name)
         setOptionalField(blog_link, userDetails.blog)

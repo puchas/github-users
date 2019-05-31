@@ -1,8 +1,9 @@
 package pl.puchalski.githubusers.retrofit.dto
 
 import com.google.gson.annotations.SerializedName
+import pl.puchalski.githubusers.model.User
 
-class UserListDto {
+data class UserListDto(
     @SerializedName("items")
-    var users : List<UserDto>? = null
-}
+    val users: List<User>?
+)
